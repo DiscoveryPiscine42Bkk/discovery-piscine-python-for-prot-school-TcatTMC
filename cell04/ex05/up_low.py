@@ -1,3 +1,3 @@
 word = input("word :")
 
-print(word.swapcase)
+print(word.swapcase())
