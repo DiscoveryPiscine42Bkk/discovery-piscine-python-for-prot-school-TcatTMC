@@ -1,35 +1,37 @@
 #//////////////////////////////////////////////////////////// หาตัวใดๆ //////////////////////////////////////////////////
 def scan_king(board):
     # หา king
-    for y_idx, row in enumerate(board):
+    King = [] 
+    for y_idx, row in enumerate(board): 
         for x_idx, cell in enumerate(row):
             if cell == 'K':
-                return x_idx, y_idx
+                # return x_idx, y_idx
+                King.append((x_idx, y_idx))
     return None
 
-def scan_Queens(board):
-    # หา Queen
-    for y_idx, row in enumerate(board):
-        for x_idx, cell in enumerate(row):
-            if cell == 'Q':
-                return x_idx, y_idx
-    return None
+# def scan_Queens(board):
+#     # หา Queen
+#     for y_idx, row in enumerate(board):
+#         for x_idx, cell in enumerate(row):
+#             if cell == 'Q':
+#                 return x_idx, y_idx
+#     return None
 
-def scan_Rooks(board):
-    # หา Rooks
-    for y_idx, row in enumerate(board):
-        for x_idx, cell in enumerate(row):
-            if cell == 'R':
-                return x_idx, y_idx
-    return None
+# def scan_Rooks(board):
+#     # หา Rooks
+#     for y_idx, row in enumerate(board):
+#         for x_idx, cell in enumerate(row):
+#             if cell == 'R':
+#                 return x_idx, y_idx
+#     return None
 
-def scan_Bishop(board):
-    # หา Bishop
-    for y_idx, row in enumerate(board):
-        for x_idx, cell in enumerate(row):
-            if cell == 'B':
-                return x_idx, y_idx
-    return None
+# def scan_Bishop(board):
+#     # หา Bishop
+#     for y_idx, row in enumerate(board):
+#         for x_idx, cell in enumerate(row):
+#             if cell == 'B':
+#                 return x_idx, y_idx
+#     return None
 
 def scan_pawns(board):
     # หา pawns
@@ -52,6 +54,7 @@ def scan_check(board, kx, ky):
         'bishop': [(1, 1), (1, -1), (-1, 1), (-1, -1)],
         'queen': [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
     }
+
 
     # check!!!
     for piece, moves in directions.items():
@@ -83,7 +86,7 @@ def check_K(board_str):
     board = board_str.strip().split("\n")
 
     king_pos = scan_king(board)
-    if not king_pos:
+    if not king_pos or king_pos > 1:
         print("Error")  
         return
 
